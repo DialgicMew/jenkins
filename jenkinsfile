@@ -11,6 +11,7 @@ steps{
 //  $DiffToMaster = & git diff master dev
 //  echo $DiffToMaster
 //  '''
+ powershell label: '', script: '$DiffToMaster = & git diff master dev'
 
 }
 }
