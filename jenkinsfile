@@ -7,6 +7,7 @@ stage('Build')
 {
 steps{
  echo "Building the Project.........."
+ git 'git config remote.origin.url https://github.com/DialgicMew/jenkins.git'
  git 'git branch'
 
 }
