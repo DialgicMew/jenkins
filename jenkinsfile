@@ -6,17 +6,19 @@ stages
 stage('Build') 
 {
 steps{
-echo "Building the Project.........."
+ echo "Building the Project.........."
 //  powershell '''
 //  $DiffToMaster = & git diff master dev
 //  echo $DiffToMaster
 //  '''
+script{
 def proc = "git diff master dev".execute()
 def b = new StringBuffer()
 proc.consumeProcessErrorStream(b)
 
 println proc.text
 println b.toString()
+}
 }
 }
 stage('Test') 
