@@ -6,6 +6,10 @@ stage('Build')
 {
 steps{
 echo "Building the Project.........."
+ powershell '''
+ $DiffToMaster = & git diff master dev
+ echo $DiffToMaster
+ '''
 }
 }
 stage('Test') 
