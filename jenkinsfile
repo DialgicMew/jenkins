@@ -11,9 +11,10 @@ stages
 stage('Build') 
 {
 steps{
- echo "Comparing Branches"
- sh "git diff remotes/origin/${params.a} remotes/origin/${params.b}"  
-}
+    sh 'git clone https://github.com/DialgicMew/jenkins.git'
+//  echo "Comparing Branches"
+//  sh "git diff remotes/origin/${params.a} remotes/origin/${params.b}"  
+// }
 }
 stage('Test') 
 {
