@@ -22,7 +22,7 @@ steps{
     sh 'cd ..'
     sh 'cd example'
     echo "Comparing Branches"
-    sh "git diff --name-only remotes/origin/${params.a} remotes/origin/${params.b}" 
+    sh "git diff --name-only remotes/origin/master remotes/origin/dev" 
 }
 }
 stage('Test') 
