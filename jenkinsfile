@@ -21,8 +21,9 @@ steps{
     sh "git diff --name-only remotes/origin/master remotes/origin/dev"  
     sh 'cd ..'
     sh 'cd example'
+    sh 'ls'
     echo "Comparing Branches"
-    sh "git diff --name-only origin/master origin/dev" 
+    sh "git diff --name-only master dev" 
 }
 }
 stage('Test') 
