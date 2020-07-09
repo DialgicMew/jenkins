@@ -12,6 +12,7 @@ stage('Build')
 {
 steps{
  echo "Comparing Branches"
+ echo "${params.a}"
  sh 'git diff remotes/origin/master remotes/origin/dev'
 }
 }
