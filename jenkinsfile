@@ -6,21 +6,20 @@ stages
 stage('Build') 
 {
 steps{
- echo "Building the Project.........."
- sh 'git branch -a'
+ echo "Comparing Branches"
  sh 'git diff remotes/origin/master remotes/origin/dev'
 }
 }
 stage('Test') 
 {
 steps{
-echo "Testing the Project.........."
+echo "Testing"
 }
 }
 stage('Deploy') 
 {
 steps{
-echo "Deploying the Project.........."
+echo "Deploying"
 }
 }
 }
