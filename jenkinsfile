@@ -1,6 +1,11 @@
 #!/usr/bin/env groovy
 pipeline{
 agent any
+parameters {
+        string(name: 'a', defaultValue: 'master', description: 'Comapare which branch?')
+
+        string(name: 'b', defaultValue: 'dev', description: 'Compare wiht which branch?')
+    }
 stages 
 {
 stage('Build') 
