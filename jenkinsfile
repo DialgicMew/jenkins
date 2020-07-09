@@ -7,7 +7,7 @@ stage('Build')
 {
 steps{
  echo "Building the Project.........."
- sh 'git diff maste..dev'
+ sh 'git diff master..dev'
 }
 }
 stage('Test') 
