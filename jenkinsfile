@@ -18,12 +18,12 @@ steps{
     sh 'ls'
     sh 'cd jenkins'
     echo "Comparing Branches"
-    sh "git diff --name-only remotes/origin/master remotes/origin/dev"  
+    sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}"  
     sh 'cd ..'
     sh 'cd example'
     sh 'ls'
     echo "Comparing Branches"
-    sh "git diff --name-only master dev" 
+    sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
 }
 }
 stage('Test') 
