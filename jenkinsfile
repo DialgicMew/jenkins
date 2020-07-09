@@ -7,7 +7,7 @@ stage('Build')
 {
 steps{
  echo "Building the Project.........."
- sh 'git branch'
+ sh 'git branch -a'
 }
 }
 stage('Test') 
