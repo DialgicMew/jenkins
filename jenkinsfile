@@ -2,9 +2,9 @@
 pipeline{
 agent any
 parameters {
-        string(name: 'a', defaultValue: 'master', description: 'Comapare which branch?')
+        string(name: 'branchA', defaultValue: 'master', description: 'Comapare which branch?')
 
-        string(name: 'b', defaultValue: 'dev', description: 'Compare with which branch?')
+        string(name: 'BranchB', defaultValue: 'dev', description: 'Compare with which branch?')
     }
 stages 
 {
