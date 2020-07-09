@@ -12,7 +12,7 @@ stage('Build')
 {
 steps{
  echo "Comparing Branches"
- sh 'git diff remotes/origin/${params.a} remotes/origin/${params.b}'
+ sh "git diff remotes/origin/${params.a} remotes/origin/${params.b}"  
 }
 }
 stage('Test') 
