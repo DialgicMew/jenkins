@@ -33,7 +33,7 @@ steps{
  doGenerateSubmoduleConfigurations: false,
  extensions: [[$class: 'CleanBeforeCheckout']],
  submoduleCfg: [],
- userRemoteConfigs:  [[credentialsId: 'gitCreds', url: "https://github.com/DialgicMew/jenkins.git"]]])
+ userRemoteConfigs:  [[credentialsId: 'gitCreds', url: "https://github.com/DialgicMew/example.git"]]])
  sh 'ls'
 //  sh 'cd jenkins'
 //  sh 'ls'
