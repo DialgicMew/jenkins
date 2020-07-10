@@ -28,16 +28,14 @@ steps{
     // sh 'ls'
     // echo "Comparing Branches"
     // sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
-    stage('Git source') {
-    steps {
-        checkout([$class: 'GitSCM',
-        branches: [[name: 'BRANCH_name']],
-        doGenerateSubmoduleConfigurations: false,
-        extensions: [[$class: 'CleanBeforeCheckout']],
-        submoduleCfg: [],
-        userRemoteConfigs:  [url: "https://github.com/DialgicMew/jenkins.git"]])
-    }
-    }
+ checkout([$class: 'GitSCM',
+ branches: [[name: 'BRANCH_name']],
+ doGenerateSubmoduleConfigurations: false,
+ extensions: [[$class: 'CleanBeforeCheckout']],
+ submoduleCfg: [],
+ userRemoteConfigs:  [url: "https://github.com/DialgicMew/jenkins.git"]])
+    
+    
 }
 stage('Test') 
 {
