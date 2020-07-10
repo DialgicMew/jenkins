@@ -36,6 +36,15 @@ steps{
  sh 'ls'
  sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
 
+checkout([$class: 'GitSCM',
+ branches: [[name: '*/master']],
+ doGenerateSubmoduleConfigurations: false,
+ extensions: [[$class: 'CleanBeforeCheckout']],
+ submoduleCfg: [],
+ userRemoteConfigs:  [[credentialsId: 'gitCreds', url: "https://github.com/DialgicMew/jenkins.git"]]])
+ sh 'ls'
+ sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
+
 //  sh 'cd jenkins'
 //  sh 'ls'
     
