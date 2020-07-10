@@ -29,9 +29,9 @@ steps{
     // echo "Comparing Branches"
     // sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
  checkout([$class: 'GitSCM',
- branches: [[name: 'BRANCH_name']],
+ branches: [[name: '*/master']],
  doGenerateSubmoduleConfigurations: false,
- extensions: [[$class: 'CleanBeforeCheckout']],
+ extensions: [[$class: 'CleanCheckout']],
  submoduleCfg: [],
  userRemoteConfigs:  [url: "https://github.com/DialgicMew/jenkins.git"]])
     
