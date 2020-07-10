@@ -34,6 +34,9 @@ steps{
  extensions: [[$class: 'CleanBeforeCheckout']],
  submoduleCfg: [],
  userRemoteConfigs:  [[credentialsId: 'gitCreds', url: "https://github.com/DialgicMew/jenkins.git"]]])
+ sh 'ls'
+//  sh 'cd jenkins'
+//  sh 'ls'
     
     
 }
