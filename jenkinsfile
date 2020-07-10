@@ -11,27 +11,32 @@ stages
 stage('Build') 
 {
 steps{
-    sh 'rm -r jenkins'
-    sh 'rm -r example'
-    sh 'git clone https://github.com/DialgicMew/jenkins.git'
-    sh 'git clone https://github.com/DialgicMew/example.git'
-    sh 'ls'
-    sh "$PWD"
-        dir('jenkins'){
-        sh "$PWD"
-        }
-    sh "$PWD"
+    // sh 'rm -r jenkins'
+    // sh 'rm -r example'
+    // sh 'git clone https://github.com/DialgicMew/jenkins.git'
+    // sh 'git clone https://github.com/DialgicMew/example.git'
+    // sh 'ls'
+   
     // sh 'cd jenkins'
-    sh 'git config remote.origin.url https://github.com/DialgicMew/jenkins.git' 
-    echo "Comparing Branches"
-    sh 'ls'
+    // sh 'git config remote.origin.url https://github.com/DialgicMew/jenkins.git' 
+    // echo "Comparing Branches"
+    // sh 'ls'
     // sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}"  
-    sh 'cd ..'
-    sh 'cd example'
-    sh 'git config remote.origin.url https://github.com/DialgicMew/example.git' 
-    sh 'ls'
-    echo "Comparing Branches"
+    // sh 'cd ..'
+    // sh 'cd example'
+    // sh 'git config remote.origin.url https://github.com/DialgicMew/example.git' 
+    // sh 'ls'
+    // echo "Comparing Branches"
     // sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
+    stage('Git source') {
+    steps {
+        checkout([$class: 'GitSCM',
+        branches: [[name: 'BRANCH_name']],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [[$class: 'CleanBeforeCheckout']],
+        submoduleCfg: [],
+        userRemoteConfigs:  url: "https://github.com/DialgicMew/jenkins.git"])}
+
 }
 }
 stage('Test') 
