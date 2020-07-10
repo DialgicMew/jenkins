@@ -17,10 +17,12 @@ steps{
     sh 'git clone https://github.com/DialgicMew/example.git'
     sh 'ls'
     sh 'cd jenkins'
+    sh 'git config remote.origin.url https://github.com/DialgicMew/jenkins.git' 
     echo "Comparing Branches"
     sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}"  
     sh 'cd ..'
     sh 'cd example'
+    sh 'git config remote.origin.url https://github.com/DialgicMew/example.git' 
     sh 'ls'
     echo "Comparing Branches"
     sh "git diff --name-only remotes/origin/${params.branchA} remotes/origin/${params.branchB}" 
