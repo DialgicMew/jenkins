@@ -31,9 +31,9 @@ steps{
  checkout([$class: 'GitSCM',
  branches: [[name: '*/master']],
  doGenerateSubmoduleConfigurations: false,
- extensions: [[$class: 'CleanCheckout']],
+ extensions: [[$class: 'CleanBeforeCheckout']],
  submoduleCfg: [],
- userRemoteConfigs:  [credentialsId: 'gitCreds', url: "https://github.com/DialgicMew/jenkins.git"]])
+ userRemoteConfigs:  [[credentialsId: 'gitCreds', url: "https://github.com/DialgicMew/jenkins.git"]]])
     
     
 }
