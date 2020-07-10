@@ -35,9 +35,9 @@ steps{
         doGenerateSubmoduleConfigurations: false,
         extensions: [[$class: 'CleanBeforeCheckout']],
         submoduleCfg: [],
-        userRemoteConfigs:  [url: "https://github.com/DialgicMew/jenkins.git"]])}
-
-}
+        userRemoteConfigs:  [url: "https://github.com/DialgicMew/jenkins.git"]])
+    }
+    }
 }
 stage('Test') 
 {
@@ -49,6 +49,7 @@ stage('Deploy')
 {
 steps{
 echo "Deploying"
+}
 }
 }
 }
