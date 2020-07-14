@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dt.hgw</groupId>
+    <artifactId>rule-manager-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <version>0.5.0-SNAPSHOT</version>
+
+    <modules>
+        <module>rule-manager-core</module>
+        <module>rule-manager-adapter</module>
+        <module>rule-manager-deploy</module>
+        <module>rule-manager-processor</module>
+        <module>rule-aggregator</module>
+    </modules>
+
+    <parent>
+        <groupId>org.dt.core</groupId>
+        <artifactId>core-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <version.rule.manager.adapter>0.5.0-SNAPSHOT</version.rule.manager.adapter>
+        <version.rule.manager.core>0.5.0-SNAPSHOT</version.rule.manager.core>
+        <version.rule.manager.aggregator.core>0.5.0-SNAPSHOT</version.rule.manager.aggregator.core>
+        <version.rule.manager.aggregator.api>0.5.0-SNAPSHOT</version.rule.manager.aggregator.api>
+        <version.rule.manager.processor>0.5.0-SNAPSHOT</version.rule.manager.processor>
+
+        <version.hgw.integration>1.0-SNAPSHOT</version.hgw.integration>
+        <version.maven.jgit.plugin>1.0-m5.1</version.maven.jgit.plugin>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.dt.hgw</groupId>
+                <artifactId>hgw-integration-bom</artifactId>
+                <version>${version.hgw.integration}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dt.hgw</groupId>
+                <artifactId>rule-manager-core</artifactId>
+                <version>${version.rule.manager.core}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dt.hgw</groupId>
+                <artifactId>rule-manager-adapter</artifactId>
+                <version>${version.rule.manager.adapter}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dt.hgw</groupId>
+                <artifactId>rule-manager-processor</artifactId>
+                <version>${version.rule.manager.processor}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dt.hgw</groupId>
+                <artifactId>rule-aggregator-api</artifactId>
+                <version>${version.rule.manager.aggregator.api}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dt.hgw</groupId>
+                <artifactId>rule-aggregator-core</artifactId>
+                <version>${version.rule.manager.aggregator.core}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.3</version>
+                <executions>
+                    <execution>
+                        <id>coverage-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>coverage-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report-aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>${version.maven.jgit.plugin}</version>
+                <configuration>
+                    <noDeploy>true</noDeploy>
+                    <squash>false</squash>
+                    <pushReleases>false</pushReleases>
+                    <allowSnapshots>true</allowSnapshots>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <flowInitContext>
+                        <masterBranchName>master</masterBranchName>
+                        <developBranchName>dev</developBranchName>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <versionTagPrefix>dt-hgw-</versionTagPrefix>
+                    </flowInitContext>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
